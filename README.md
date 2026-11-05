@@ -15,7 +15,9 @@ into an Orion GHV-1223 P video recorder, then the app starts.
 **[▶ Try the live demo](https://kewuamigo.github.io/VHSLauncher/)** — arrow keys to choose a
 tape, Enter to load it, Esc to eject. No TV needed.
 
-[![The shelf of cassettes above the Orion VCR](docs/screenshot-shelf.jpg)](https://kewuamigo.github.io/VHSLauncher/)
+[![The shelf of cassettes above the Orion VCR, on a Google TV Streamer](docs/screenshot-tv.jpg)](https://kewuamigo.github.io/VHSLauncher/)
+
+*On a Google TV Streamer (Google TV 14), the TV it was built and tested on.*
 
 | Setup tape menu | |
 | --- | --- |
@@ -128,6 +130,17 @@ adb shell settings put secure enabled_accessibility_services hu.retro.vhslaunche
 `res/raw` holds clips cut from CC0 recordings on BigSoundBank; sources are listed in
 `app/src/main/assets/SOUNDS.txt`.
 
+## Permissions and network
+
+- `INTERNET`, for the weather only. It talks to Open-Meteo (`api.open-meteo.com`, and
+  `geocoding-api.open-meteo.com` when you type a city). With no city set, it also asks
+  **ipwho.is**, then **ipapi.co**, where you are from your IP address, which sends that address to
+  them. Set a city in SETUP › LOCATION, or turn WEATHER off, and those lookups stop.
+- `BIND_ACCESSIBILITY_SERVICE`, for the optional **VHS Home button** service (Google TV only, off
+  until you enable it). It filters the Home key and watches for the Google TV home window; it has
+  `canRetrieveWindowContent="false"`, so it cannot read what is on screen.
+- No analytics, no accounts, nothing else leaves the TV.
+
 ## Code map
 
 - `MainActivity.kt`: window, remote keys, app launching, package-change updates
@@ -138,3 +151,8 @@ adb shell settings put secure enabled_accessibility_services hu.retro.vhslaunche
 
 Fonts (VT323, Caveat Brush, Barlow Semi Condensed) are under the SIL Open Font License; the
 licence texts are next to them in `app/src/main/assets/fonts`.
+
+## Licence
+
+[MIT](LICENSE). The fonts (SIL Open Font License) and the sounds (see `SOUNDS.txt`) keep their own
+licences.
