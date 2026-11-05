@@ -1,7 +1,25 @@
 # VHS Launcher
 
+[![Live demo](https://img.shields.io/badge/demo-try_it_in_the_browser-1a2bc4?style=for-the-badge&logo=githubpages&logoColor=white)](https://kewuamigo.github.io/VHSLauncher/)
+[![Download APK](https://img.shields.io/badge/download-APK-3ddc84?style=for-the-badge&logo=android&logoColor=white)](https://kewuamigo.github.io/VHSLauncher/vhs-launcher.apk)
+
+[![Deploy to GitHub Pages](https://github.com/kewuamigo/VHSLauncher/actions/workflows/pages.yml/badge.svg)](https://github.com/kewuamigo/VHSLauncher/actions/workflows/pages.yml)
+![Android TV 5.0+](https://img.shields.io/badge/Android_TV-5.0%2B-3ddc84?logo=android&logoColor=white)
+![Kotlin](https://img.shields.io/badge/Kotlin-1.9-7f52ff?logo=kotlin&logoColor=white)
+![OpenGL ES 2.0](https://img.shields.io/badge/OpenGL_ES-2.0-5586a4?logo=opengl&logoColor=white)
+![WebGL](https://img.shields.io/badge/WebGL-preview-990000?logo=webgl&logoColor=white)
+
 An Android TV home screen where every app is a VHS cassette on a shelf. Picking one loads it
 into an Orion GHV-1223 P video recorder, then the app starts.
+
+**[▶ Try the live demo](https://kewuamigo.github.io/VHSLauncher/)** — arrow keys to choose a
+tape, Enter to load it, Esc to eject. No TV needed.
+
+[![The shelf of cassettes above the Orion VCR](docs/screenshot-shelf.jpg)](https://kewuamigo.github.io/VHSLauncher/)
+
+| Setup tape menu | |
+| --- | --- |
+| ![The blue VCR-style setup menu](docs/screenshot-setup.jpg) | App order, sound, weather, clock and effects, in the style of a late-80s VCR on-screen menu. |
 
 Native Kotlin, no AndroidX or other libraries. The whole scene is a single OpenGL ES 2.0
 surface: cassettes are real 3D boxes, flat artwork is painted once with Canvas into textures,
@@ -9,8 +27,10 @@ and the VHS snow and CRT scanlines are shaders.
 
 ## Browser preview
 
+The live demo is published at **https://kewuamigo.github.io/VHSLauncher/**.
+
 `web/` is the same launcher for the browser, for trying it without a TV: the scene runs on
-WebGL, and apps open in a frame. It has no build step; serve the folder and open it:
+WebGL, and apps open in a frame. It has no build step; to run it locally, serve the folder:
 
 ```bash
 python -m http.server 8000 --directory web
@@ -49,9 +69,12 @@ Setting it up with an AI coding agent? Point it at [AGENT_INSTALL.md](AGENT_INST
 through installing, making VHS Launcher the default home on Android TV and Google TV (including
 keeping the long-press Home panel), verifying, and rolling back.
 
+Get the APK from the [download link](https://kewuamigo.github.io/VHSLauncher/vhs-launcher.apk)
+(or build it, above), then:
+
 ```bash
 adb connect <tv-ip>:5555
-adb install -r app/build/outputs/apk/release/app-release.apk
+adb install -r vhs-launcher.apk
 ```
 
 Press Home on the remote and choose VHS Launcher. On Google TV devices that do not offer a
