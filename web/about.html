@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About VHS Launcher</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  html, body { overflow: auto; background: var(--osd-blue); }
+  main { max-width: 860px; margin: 0 auto; padding: 32px 16px 48px; font-size: 26px; letter-spacing: 1px; line-height: 1.35; }
+  h1 { font-size: 56px; letter-spacing: 6px; margin: 0 0 16px; font-weight: 400; }
+  h2 { font-size: 34px; letter-spacing: 3px; margin: 32px 0 8px; font-weight: 400; }
+  a { color: #fff; }
+  ul { padding-left: 1.2em; }
+  kbd { border: 2px solid #fff; padding: 0 6px; font: inherit; }
+</style>
+</head>
+<body>
+<main>
+  <h1>VHS LAUNCHER</h1>
+  <p>A home screen for Android TV where every app is a VHS cassette on a shelf. Pick one and it loads into an Orion GHV-1223 P, the Hungarian-market video recorder of the late 1980s, then the app starts.</p>
+  <p>This page is the browser preview. On a TV it is a native Kotlin app drawn with OpenGL ES; here the same scene runs on WebGL and apps open in a frame.</p>
+  <p><a href="vhs-launcher.apk" download target="_blank">Download the Android TV APK</a>, then install it with <kbd>adb install vhs-launcher.apk</kbd>.</p>
+
+  <h2>CONTROLS</h2>
+  <ul>
+    <li><kbd>←</kbd> <kbd>→</kbd> or the mouse wheel: choose a tape</li>
+    <li><kbd>Enter</kbd> or a click on the middle tape: load it</li>
+    <li><kbd>Esc</kbd> or the back button in the corner: take it out</li>
+    <li>The red SETUP tape at the end: app order, sound, weather and more</li>
+  </ul>
+
+  <h2>CREDITS</h2>
+  <ul>
+    <li>Fonts: VT323, Caveat Brush and Barlow Semi Condensed, SIL Open Font License</li>
+    <li>VCR and cassette sounds cut from CC0 recordings on <a href="https://bigsoundbank.com/vhs-player-s2688.html" target="_blank" rel="noopener">BigSoundBank</a></li>
+    <li>Weather: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a></li>
+  </ul>
+</main>
+</body>
+</html>

@@ -1,0 +1,64 @@
+@font-face { font-family: 'VHS-VT323'; src: url('assets/fonts/VT323-Regular.ttf') format('truetype'); font-display: block; }
+@font-face { font-family: 'VHS-Brush'; src: url('assets/fonts/CaveatBrush-Regular.ttf') format('truetype'); font-display: block; }
+@font-face { font-family: 'VHS-Barlow'; src: url('assets/fonts/BarlowSemiCondensed-Medium.ttf') format('truetype'); font-weight: 500; font-display: block; }
+@font-face { font-family: 'VHS-Barlow'; src: url('assets/fonts/BarlowSemiCondensed-Bold.ttf') format('truetype'); font-weight: 700; font-display: block; }
+
+:root {
+  --ground: #000;
+  --osd-blue: #1a2bc4;
+  --osd-ink: #ffffff;
+  --muted: #b9ae98;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--ground); overflow: hidden; }
+body { font-family: 'VHS-VT323', ui-monospace, monospace; color: var(--osd-ink); }
+
+#scene { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; cursor: pointer; }
+
+.hint {
+  position: fixed; left: 50%; bottom: max(16px, env(safe-area-inset-bottom)); transform: translateX(-50%);
+  margin: 0; padding: 6px 14px; border-radius: 4px; background: rgba(0, 0, 0, 0.55);
+  color: var(--muted); font-size: 22px; letter-spacing: 2px; white-space: nowrap; pointer-events: none;
+  transition: opacity 0.6s;
+}
+.hint.gone { opacity: 0; }
+@media (max-width: 560px) { .hint { font-size: 16px; letter-spacing: 1px; } }
+
+.error {
+  position: fixed; inset: 0; margin: 0; display: grid; place-items: center; padding: 16px;
+  background: var(--osd-blue); font-size: 32px; letter-spacing: 3px; text-align: center;
+}
+
+.player { position: fixed; inset: 0; background: #000; }
+.player[hidden], .dialog[hidden], .error[hidden] { display: none; }
+.player iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+/* Preview-only way back; on a TV the remote's Back/Home does this. */
+.back {
+  position: absolute; top: max(12px, env(safe-area-inset-top)); left: max(12px, env(safe-area-inset-left));
+  width: 44px; height: 44px; display: grid; place-items: center; padding: 0;
+  border: 0; border-radius: 50%; background: rgba(0, 0, 0, 0.45); color: #fff;
+  opacity: 0.55; cursor: pointer; transition: opacity 0.2s, background 0.2s;
+}
+.back:hover, .back:focus-visible { opacity: 1; background: rgba(0, 0, 0, 0.7); outline: 2px solid rgba(255, 255, 255, 0.8); outline-offset: 2px; }
+.actions { display: inline-flex; gap: 10px; flex-wrap: wrap; }
+
+.osd-btn {
+  font: inherit; font-size: 24px; letter-spacing: 2px; text-transform: uppercase; color: var(--osd-ink);
+  background: transparent; border: 2px solid var(--osd-ink); padding: 6px 14px; min-height: 44px;
+  cursor: pointer; text-decoration: none; display: inline-flex; align-items: center;
+}
+.osd-btn:hover, .osd-btn:focus-visible { background: var(--osd-ink); color: var(--osd-blue); outline: none; }
+
+.dialog {
+  position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(560px, calc(100vw - 32px));
+  display: flex; flex-direction: column; gap: 12px; padding: 24px; background: var(--osd-blue);
+  border: 2px solid var(--osd-ink); font-size: 28px; letter-spacing: 2px;
+}
+.dialog label { text-transform: uppercase; }
+.dialog input {
+  font: inherit; color: var(--osd-ink); background: rgba(0, 0, 0, 0.25); border: 2px solid var(--osd-ink);
+  padding: 8px 12px; min-height: 48px;
+}
+.dialog p { margin: 0; font-size: 20px; opacity: 0.8; }

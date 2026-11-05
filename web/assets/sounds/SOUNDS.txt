@@ -1,0 +1,16 @@
+Sound effects in res/raw
+
+sfx_button, sfx_insert, sfx_eject
+  Cut from "VHS player" by BigSoundBank (sound #2688), CC0 / public domain.
+  https://bigsoundbank.com/vhs-player-s2688.html
+
+sfx_switch
+  Cut from "Audio cassette back 4" by BigSoundBank (sound #2157), CC0 / public domain.
+  https://bigsoundbank.com/audio-cassette-back-4-s2157.html
+
+sfx_select
+  "Menu selection" (Pixabay sound 102220, uploaded by freesound_community), supplied by the
+  project owner; Pixabay Content License. Trimmed and converted to OGG.
+
+sfx_static
+  Generated white noise (ffmpeg anoisesrc), no source recording.

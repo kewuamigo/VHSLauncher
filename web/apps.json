@@ -1,0 +1,7 @@
+[
+  { "label": "YouTube", "url": "https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ?autoplay=1" },
+  { "label": "Archive.org", "url": "https://archive.org/embed/superman_the_mechanical_monsters" },
+  { "label": "Wikipedia", "url": "https://en.m.wikipedia.org/wiki/VHS" },
+  { "label": "OpenStreetMap", "url": "https://www.openstreetmap.org/export/embed.html?bbox=18.95,47.44,19.16,47.56&layer=mapnik" },
+  { "label": "About", "url": "about.html" }
+]

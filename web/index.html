@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VHS Launcher</title>
+<meta name="description" content="A VHS-themed Android TV launcher: every app is a cassette that loads into an Orion GHV-1223 P video recorder. Browser preview.">
+<meta name="theme-color" content="#0b0907">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/VT323-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="scene" aria-label="VHS Launcher: a shelf of cassettes above an Orion video recorder"></canvas>
+
+<p id="hint" class="hint">← → choose a tape · Enter play · Esc eject</p>
+<p id="error" class="error" hidden></p>
+
+<section id="player" class="player" hidden aria-label="Playing app">
+  <iframe id="player-frame" title="App" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  <button id="player-back" class="back" type="button" aria-label="Back to the launcher">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+  </button>
+</section>
+
+<form id="city" class="dialog" hidden>
+  <label for="city-input">Weather location</label>
+  <input id="city-input" type="text" autocomplete="off" placeholder="Budapest">
+  <p>Leave it empty to detect it from your internet connection.</p>
+  <span class="actions">
+    <button type="submit" class="osd-btn">Save</button>
+    <button type="button" id="city-cancel" class="osd-btn">Cancel</button>
+  </span>
+</form>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

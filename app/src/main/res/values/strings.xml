@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VHS Launcher</string>
+    <string name="home_button_service_label">VHS Home button</string>
+    <string name="home_button_service_description">Opens VHS Launcher when you press Home, and the Google TV panel when you hold it. It only reacts to the Home button and does not read anything on screen.</string>
+</resources>
